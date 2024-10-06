@@ -1,11 +1,10 @@
 import express from "express";
-import mongoose from "mongoose";
-import { ExpressHandlebars } from "express-handlebars.js";
 import handlebarsInit from "./config/handlebarsInit.js";
 import expressInit from "./config/expressInit.js";
-
+import mongooseInit from "./config/mongooseInit.js";
 const app = express();
 
+mongooseInit();
 handlebarsInit(app);
 expressInit(app);
 
