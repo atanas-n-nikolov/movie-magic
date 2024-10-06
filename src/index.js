@@ -1,17 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
-import handlebars from 'express-handlebars';
+import { ExpressHandlebars } from "express-handlebars.js";
+import handlebarsInit from "./config/handlebarsInit.js";
+import expressInit from "./config/expressInit.js";
 
 const app = express();
 
-app.engine('hbs', handlebars.engine({
-  extname: 'hbs'
-}));
-
-app.set('view engine', 'hbs');
-app.set('views', './src/views');
-
-app.use(express.static('public'));
+handlebarsInit(app);
+expressInit(app);
 
 app.get('/', (req, res) => {
   res.render('movies/home');
