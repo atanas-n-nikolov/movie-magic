@@ -8,7 +8,13 @@ const getAll = async (filter = {}) => {
 
 const create = (movie) =>  Movie.create(movie);
 
+const getOne = async (id) => {
+  const movie = await Movie.findById(id).lean();
+  return movie;
+};
+
 export default {
   getAll,
+  getOne,
   create,
-}
+};
