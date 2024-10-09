@@ -19,8 +19,8 @@ router.get('/details/:id', async (req, res) => {
 
 router.get('/search', async (req, res) => {
   const filter = req.query;
-  const movies = await movieService.getAll(filter).lean();
-  res.render('home', { isSearch: true, movies, filter });
+  const movies = await movieService.getAll(filter);
+  res.render('movies/search', { movies, filter });
 });
 
 export default router;
