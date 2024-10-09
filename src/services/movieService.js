@@ -1,17 +1,14 @@
 import Movie from "../models/Movie.js";
 
 const getAll = async (filter = {}) => {
-  let moviesQuery = await Movie.find();
+  let moviesQuery = Movie.find().lean();
 
   return moviesQuery;
 };
 
 const create = (movie) =>  Movie.create(movie);
 
-const getOne = async (id) => {
-  const movie = await Movie.findById(id).lean();
-  return movie;
-};
+const getOne = (id) => Movie.findById(id).lean();
 
 export default {
   getAll,
